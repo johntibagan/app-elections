@@ -1,0 +1,18 @@
+<ng-container [ngSwitch]="data.template">
+    <ng-container *ngSwitchCase="'vote'">
+        <ng-container *ngTemplateOutlet="vote"></ng-container>
+    </ng-container>
+</ng-container>
+
+<!-- vote -->
+<ng-template #vote>
+    <h1 mat-dialog-title> Confirmar Voto </h1>
+    <div mat-dialog-content>
+        Ha seleccionado <strong>{{ data.candidate?.names }}</strong><br>
+        Continuar?.
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="null">Cancelar</button>
+        <button mat-button [mat-dialog-close]=" true" cdkFocusInitial>Ok</button>
+    </div>
+</ng-template>

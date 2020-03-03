@@ -1,0 +1,20 @@
+<img id="img-vote" src="assets/img/vote-ok.gif" *ngIf="!vote">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div id="title" class="col center">COLEGIO</div>
+    </div>
+
+    <h3> Votación Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h3>
+
+    <div id="list" class="row align-items-center list" [ngClass]="{'no-vote': !vote}">
+        <div class="col" *ngFor="let c of candidates">
+            <mat-card class="card-vote" (click)="addVote(c)" [id]="c.idCss || c.id + '-candidate'">
+                <img mat-card-image src="">
+                <mat-card-content>
+                    <h4 class="center"> {{ c.names }}</h4>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
