@@ -13,11 +13,26 @@ const KEY_CONFIG = hashCode('app-config');
 export class VotesService {
 
   /**
+   * Determines whether vote in
+   */
+  public inVote: boolean;
+
+  /**
    * Candidates  of votes service
    */
   private candidates: Candidate[];
 
   constructor() {
+    this.candidates = [];
+  }
+
+  /**
+   * Resets votes service
+   */
+  public reset() {
+    localStorage.removeItem(KEY_JSON);
+    localStorage.removeItem(KEY_CONFIG);
+    CandidateWhite.votes = 0;
     this.candidates = [];
   }
 
@@ -31,7 +46,7 @@ export class VotesService {
     else
       return {
         timeVote: 10000,
-        pwd: '123'// 'votaciones2020'
+        pwd: 'votaciones2020'
       };
   }
 
@@ -90,6 +105,9 @@ export class VotesService {
     const index = this.candidates.findIndex(c => c.id == candidate.id);
     if (index >= 0)
       this.candidates[index].votes++;
-    localStorage.setItem(KEY_JSON, JSON.stringify(this.candidates))
+    localStorage.setItem(KEY_JSON, JSON.stringify(this.candidates));
+
+    this.inVote = true;
+    setTimeout(() => this.inVote = false, 5000);
   }
 }

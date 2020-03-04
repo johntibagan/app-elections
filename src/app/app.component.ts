@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
    * Creates an instance of app component.
    */
   constructor(
-    private votesService: VotesService,
+    public votesService: VotesService,
     private snackBar: MatSnackBar
   ) {
     this.loginOk = false;

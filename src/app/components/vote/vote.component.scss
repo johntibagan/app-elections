@@ -13,7 +13,33 @@
 
 #vote-white {
   background: white !important;
-  padding-bottom: 120px;
+  padding-bottom: 115px;
+}
+
+img {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay {
+  display: none;
+}
+
+.card-vote:hover .overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  img {
+    vertical-align: top;
+  }
 }
 
 #vote-white,
@@ -21,14 +47,17 @@
   border: gray 1px solid;
   cursor: pointer;
 }
+.card-vote::before {
+  content: "";
+}
 
 .img-div {
-  height: 120px;
+  height: 105px;
 }
 
 .card-vote img {
-  height: 240px;
-  width: auto;
+  // height: 240px;
+  // width: auto;
 }
 
 .no-vote {

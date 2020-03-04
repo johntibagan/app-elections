@@ -24,6 +24,20 @@
 </mat-card>
 
 <ng-template #tempContent>
+    <!-- Voto registrado -->
+    <div class="loading" *ngIf="votesService.inVote">
+        <div class="l-center">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <strong> Voto Registrado </strong>
+        </div>
+    </div>
 
     <mat-toolbar id="header">
         <mat-icon *ngIf="admin" (click)="back()" color="primary" matTooltip="Volver">

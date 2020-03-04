@@ -9,6 +9,20 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.center {
-  text-align: center;
+.center,
+.mat-cell,
+.mat-header-cell,
+.mat-footer-cell {
+  text-align: center !important;
+}
+
+.mat-header-cell {
+  background: #7f0000;
+  color: white;
+}
+
+.mat-footer-cell {
+  background: gainsboro;
+  color: #353535;
+  font-weight: 500;
 }

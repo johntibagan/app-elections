@@ -16,17 +16,11 @@ export class VoteComponent {
    */
   public readonly candidates: Candidate[];
 
-  /**
-   * Vote  of vote component
-   */
-  public vote: boolean;
-
   constructor(
     private votesService: VotesService,
     private dialog: MatDialog
   ) {
     this.candidates = votesService.getCandidates();
-    this.vote = true;
   }
 
   /**
@@ -41,8 +35,6 @@ export class VoteComponent {
       if (!confirm) return;
 
       this.votesService.addVote(candidate);
-      this.vote = false;
-      setTimeout(() => this.vote = true, 5000);
     });
   }
 }
