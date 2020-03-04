@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Candidate, CandidateWhite } from '../interfaces/interfaces';
+import { Candidate, CandidateWhite, ConfigApp } from '../interfaces/interfaces';
+import { environment } from 'src/environments/environment';
 
 function hashCode(s) {
   return s.split("").reduce(function (a, b) { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0);
 }
 
-const KEY_JSON = hashCode('app-elections');
+export const KEY_JSON = hashCode('app-elections');
+const KEY_CONFIG = hashCode('app-config');
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class VotesService {
 
   /**
@@ -22,12 +22,33 @@ export class VotesService {
   }
 
   /**
+   * Gets config
+   */
+  public getConfig(): ConfigApp {
+    const data = this.getData(KEY_CONFIG);
+    if (data)
+      return JSON.parse(data);
+    else
+      return {
+        timeVote: 10000,
+        pwd: '123'// 'votaciones2020'
+      };
+  }
+
+  /**
+   * Saves config
+   */
+  public saveConfig(config: ConfigApp) {
+    localStorage.setItem(KEY_CONFIG, JSON.stringify(config));
+  }
+
+  /**
    * Gets candidates
    * @returns candidates 
    */
   public getCandidates(): Candidate[] {
 
-    const data = localStorage.getItem(KEY_JSON);
+    const data = this.getData(KEY_JSON);
     if (data)
       this.candidates = JSON.parse(data);
     else
@@ -35,16 +56,30 @@ export class VotesService {
         CandidateWhite,
         {
           id: 1,
-          names: 'Candidato 1',
-          votes: 0
+          names: 'Valentina',
+          votes: 0,
+          img: 'vote1.jpeg'
         }, {
           id: 2,
-          names: 'Candidato 2',
-          votes: 0
+          names: 'Sebastian',
+          votes: 0,
+          img: 'vote2.jpeg'
         }
       ];
 
     return this.candidates;
+  }
+
+  /**
+   * Gets item
+   * @param key 
+   * @returns  
+   */
+  private getData(key) {
+    if (environment.production)
+      return localStorage.getItem(key);
+    else
+      return null;
   }
 
   /**

@@ -6,6 +6,11 @@ export interface Candidate {
     votes?: number;
 }
 
+export interface ConfigApp {
+    timeVote: number;
+    pwd: string;
+}
+
 export const CandidateWhite: Candidate = {
     id: 0,
     names: 'Voto en Blanco',

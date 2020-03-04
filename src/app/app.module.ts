@@ -7,13 +7,17 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as M from '@angular/material';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { VotesService } from './services/votes.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     VoteComponent,
     HomeComponent,
-    DialogComponent
+    DialogComponent,
+    AdminComponent
   ],
   entryComponents: [
     DialogComponent
@@ -21,13 +25,21 @@ import { DialogComponent } from './components/dialog/dialog.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
     // mat
     M.MatCardModule,
     M.MatToolbarModule,
     M.MatDialogModule,
     M.MatButtonModule,
+    M.MatTableModule,
+    M.MatSnackBarModule,
+    M.MatIconModule,
+    M.MatInputModule,
+    M.MatFormFieldModule,
+    M.MatTooltipModule
   ],
-  providers: [],
+  providers: [VotesService, M.MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
