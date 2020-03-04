@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
     if (config.pwd === this.form.value.pwd)
       this.loginOk = true;
     else
-      this.snackBar.open('Contraseña Incorrecta', 'Cerrar');
+      this.snackBar.open('Contraseña Incorrecta', 'Cerrar', { duration: 2000 });
   }
 
   /**
