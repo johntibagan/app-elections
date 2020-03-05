@@ -108,6 +108,6 @@ export class VotesService {
     localStorage.setItem(KEY_JSON, JSON.stringify(this.candidates));
 
     this.inVote = true;
-    setTimeout(() => this.inVote = false, 5000);
+    setTimeout(() => this.inVote = false, this.getConfig().timeVote);
   }
 }

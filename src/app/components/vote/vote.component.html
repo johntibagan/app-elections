@@ -1,9 +1,11 @@
 <div class="container">
 
-    <mat-toolbar>Para expresar su desición, haga click en la imagen y confirmar su voto.</mat-toolbar>
+    <mat-toolbar>
+        <span> Para expresar su desición, haga click en la imagen y confirmar su voto.</span>
+    </mat-toolbar>
 
-    <div id="list" class="mt-4 row align-items-center justify-content-center list">
-        <div class="col-2" *ngFor="let c of candidates">
+    <div id="list" class="mt-4 row justify-content-center list">
+        <div class="col-6 col-md-2 pb-2" *ngFor="let c of candidates">
             <mat-card class="card-vote" (click)="addVote(c)" [id]="c.idCss || c.id + '-candidate'">
                 <img *ngIf="c.img; else imgWhite" mat-card-image [src]="'assets/img/' + c.img ">
                 <ng-template #imgWhite>

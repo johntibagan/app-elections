@@ -1,5 +1,6 @@
 #header {
-  height: 32px;
+  height: 44px;
+  background: #7f0000;
 }
 
 .example-spacer {
@@ -16,7 +17,7 @@
 }
 
 .header-image {
-  background-image: url("/assets/img/logo.png");
+  background-image: url("/app-elections/assets/img/logo.png");
   background-size: cover;
   height: auto;
   border-radius: 0;
@@ -26,17 +27,31 @@ mat-form-field {
   width: 100%;
 }
 
+mat-toolbar {
+  mat-icon {
+    color: white;
+    font-size: 34px;
+    height: auto;
+  }
+}
+
 mat-icon {
   cursor: pointer;
 }
 
 #footer {
-  color: #999;
+  background: grey;
+  color: white;
   text-align: center;
   font-size: 12px;
   display: grid;
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  height: 46px;
+  left: 0;
+  right: 0;
+  max-width: 1140px;
+  margin: auto;
 }
 
 // Loading
@@ -97,7 +112,6 @@ mat-icon {
       content: "";
       height: 100px;
       position: absolute;
-      // background: #ffffff;
       transform: rotate(-45deg);
     }
 
@@ -146,7 +160,6 @@ mat-icon {
       height: 85px;
       position: absolute;
       transform: rotate(-45deg);
-      // background-color: #ffffff;
     }
   }
 }

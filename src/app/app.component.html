@@ -1,56 +1,58 @@
-<mat-card id="login" *ngIf="!loginOk; else tempContent">
-    <div class="row justify-content-center">
-        <form [formGroup]="form">
-            <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
-                <mat-card>
-                    <mat-card-header>
-                        <div mat-card-avatar class="header-image"></div>
-                        <mat-card-title>Contraseña Administrador</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="pt-3">
-                        <mat-form-field appearance="legacy">
-                            <input type="password" matInput placeholder="Contraseña" required formControlName="pwd">
-                        </mat-form-field>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button type="submit" mat-stroked-button color="primary" (click)="login()">
-                            Iniciar Sesión
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
+<!-- Voto registrado -->
+<div class="loading" *ngIf="votesService.inVote">
+    <div class="l-center">
+        <div class="success-checkmark">
+            <div class="check-icon">
+                <span class="icon-line line-tip"></span>
+                <span class="icon-line line-long"></span>
+                <div class="icon-circle"></div>
+                <div class="icon-fix"></div>
             </div>
-        </form>
-    </div>
-</mat-card>
-
-<ng-template #tempContent>
-    <!-- Voto registrado -->
-    <div class="loading" *ngIf="votesService.inVote">
-        <div class="l-center">
-            <div class="success-checkmark">
-                <div class="check-icon">
-                    <span class="icon-line line-tip"></span>
-                    <span class="icon-line line-long"></span>
-                    <div class="icon-circle"></div>
-                    <div class="icon-fix"></div>
-                </div>
-            </div>
-            <strong> Voto Registrado </strong>
         </div>
+        <strong> Voto Registrado </strong>
     </div>
+</div>
+<!-- content -->
+<div class="container pb-5">
+    <!-- login -->
+    <mat-card id="login" *ngIf="!loginOk; else tempContent">
+        <div class="row justify-content-center">
+            <form [formGroup]="form">
+                <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+                    <mat-card>
+                        <mat-card-header>
+                            <div mat-card-avatar class="header-image"></div>
+                            <mat-card-title>Contraseña Administrador</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="pt-3">
+                            <mat-form-field appearance="legacy">
+                                <input type="password" matInput placeholder="Contraseña" required formControlName="pwd">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button type="submit" mat-stroked-button color="primary" (click)="login()">
+                                Iniciar Sesión
+                            </button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </form>
+        </div>
+    </mat-card>
+    <!-- tempContent -->
+    <ng-template #tempContent>
+        <!-- actions -->
+        <mat-toolbar id="header">
+            <mat-icon *ngIf="admin" (click)="back()" color="primary" matTooltip="Volver">
+                arrow_back
+            </mat-icon>
+            <span class="example-spacer"></span>
+            <mat-icon (click)="close()" color="primary" matTooltip="Cerrar Sesión">
+                account_circle
+            </mat-icon>
+        </mat-toolbar>
 
-    <mat-toolbar id="header">
-        <mat-icon *ngIf="admin" (click)="back()" color="primary" matTooltip="Volver">
-            arrow_back
-        </mat-icon>
-        <span class="example-spacer"></span>
-        <mat-icon (click)="close()" color="primary" matTooltip="Cerrar Sesión">
-            account_circle
-        </mat-icon>
-    </mat-toolbar>
-
-    <div class="container">
-
+        <!-- header -->
         <div class="row justify-content-center pt-4">
             <div class="col-md-auto center">
                 <img id="logo" src="assets/img/logo.png" alt="logo">
@@ -59,7 +61,7 @@
                 ELECCIONES 2020 PERSONEROS
             </div>
         </div>
-
+        <!-- admin - vote -->
         <ng-container [ngSwitch]="admin">
             <app-admin *ngSwitchCase="true"></app-admin>
             <app-vote *ngSwitchCase="false"></app-vote>
@@ -80,9 +82,9 @@
                 </div>
             </ng-container>
         </ng-container>
-    </div>
-</ng-template>
-
-<mat-toolbar id="footer">
-    © Elecciones 2020
-</mat-toolbar>
+    </ng-template>
+    <!-- footer -->
+    <mat-toolbar id="footer">
+        © Elecciones 2020
+    </mat-toolbar>
+</div>

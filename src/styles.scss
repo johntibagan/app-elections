@@ -26,3 +26,9 @@ body {
   color: #353535;
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px !important;
+  }
+}
