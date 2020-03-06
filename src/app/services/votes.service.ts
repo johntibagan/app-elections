@@ -71,12 +71,12 @@ export class VotesService {
         CandidateWhite,
         {
           id: 1,
-          names: 'Valentina Moreno',
+          names: 'Natalia Valentina Moreno Delgado',
           votes: 0,
           img: 'vote1.jpeg'
         }, {
           id: 2,
-          names: 'Sebastian Burgos',
+          names: 'Juan Sebastian Burgos Burgos',
           votes: 0,
           img: 'vote2.jpeg'
         }

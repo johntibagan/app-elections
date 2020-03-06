@@ -7,7 +7,7 @@ mat-toolbar {
   height: 32px;
 }
 
-h3{
+h4 {
   color: #020081;
 }
 
@@ -18,7 +18,7 @@ h3{
     display: flex;
     flex-wrap: wrap;
     height: 100%;
-    h3 {
+    h4 {
       flex: 1;
     }
   }
@@ -33,6 +33,13 @@ h3{
 
 .overlay {
   display: none;
+}
+
+.card-vote {
+  padding: 0;
+  img {
+    padding: 16px;
+  }
 }
 
 .card-vote:hover .overlay {
