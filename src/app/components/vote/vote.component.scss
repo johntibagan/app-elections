@@ -7,6 +7,10 @@ mat-toolbar {
   height: 32px;
 }
 
+h3{
+  color: #020081;
+}
+
 #vote-white {
   mat-card-content {
     background: white !important;
@@ -14,7 +18,7 @@ mat-toolbar {
     display: flex;
     flex-wrap: wrap;
     height: 100%;
-    h4 {
+    h3 {
       flex: 1;
     }
   }

@@ -15,7 +15,7 @@
 <!-- content -->
 <div class="container pb-5">
     <!-- login -->
-    <mat-card id="login" *ngIf="!loginOk; else tempContent">
+    <div id="login" *ngIf="!loginOk; else tempContent">
         <div class="row justify-content-center">
             <form [formGroup]="form">
                 <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
@@ -38,7 +38,7 @@
                 </div>
             </form>
         </div>
-    </mat-card>
+    </div>
     <!-- tempContent -->
     <ng-template #tempContent>
         <!-- actions -->
@@ -58,7 +58,8 @@
                 <img id="logo" src="assets/img/logo.png" alt="logo">
             </div>
             <div id="title" class="col-md-auto center">
-                ELECCIONES 2020 PERSONEROS
+                <h5>COLEGIO LEV VYGOTSKY</h5>
+                <h3>ELECCIONES 2020 PERSONEROS</h3>
             </div>
         </div>
         <!-- admin - vote -->
@@ -66,7 +67,7 @@
             <app-admin *ngSwitchCase="true"></app-admin>
             <app-vote *ngSwitchCase="false"></app-vote>
             <ng-container *ngSwitchDefault>
-                <div class="row align-items-center justify-content-center">
+                <div class="row pt-5 mt-5 align-items-center justify-content-center">
                     <div class="col-md-auto">
                         <button mat-stroked-button (click)="admin=true">
                             <mat-icon>dvr</mat-icon>
@@ -85,6 +86,6 @@
     </ng-template>
     <!-- footer -->
     <mat-toolbar id="footer">
-        © Elecciones 2020
+        COLEGIO LEV VYGOTSKY | © ELECCIONES 2020
     </mat-toolbar>
 </div>

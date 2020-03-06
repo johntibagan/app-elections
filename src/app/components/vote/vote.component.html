@@ -1,7 +1,7 @@
 <div class="container">
 
     <mat-toolbar>
-        <span> Para expresar su desición, haga click en la imagen y confirmar su voto.</span>
+        <span class="pt-2"> Eduquemos integralmente para el hoy y el mañana</span>
     </mat-toolbar>
 
     <div id="list" class="mt-4 row justify-content-center list">
@@ -12,9 +12,10 @@
                     <div class="img-div"></div>
                 </ng-template>
                 <mat-card-content>
-                    <h4 class="center">
+                    <h3 class="center">
                         <strong *ngIf="c.id"> #{{ c.id }} </strong>
-                        {{ c.names }}</h4>
+                        {{ c.names }}
+                    </h3>
                 </mat-card-content>
                 <div class="overlay"></div>
             </mat-card>

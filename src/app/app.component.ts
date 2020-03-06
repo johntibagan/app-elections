@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     public votesService: VotesService,
     private snackBar: MatSnackBar
   ) {
-    this.loginOk = false;
+    this.loginOk = true;
   }
 
   /**

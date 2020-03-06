@@ -71,12 +71,12 @@ export class VotesService {
         CandidateWhite,
         {
           id: 1,
-          names: 'Valentina',
+          names: 'Valentina Moreno',
           votes: 0,
           img: 'vote1.jpeg'
         }, {
           id: 2,
-          names: 'Sebastian',
+          names: 'Sebastian Burgos',
           votes: 0,
           img: 'vote2.jpeg'
         }
